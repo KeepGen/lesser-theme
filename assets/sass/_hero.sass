@@ -1,0 +1,46 @@
+.hero
+   margin-top: 96px
+   &-title
+      width: 750px
+      margin: auto
+      text-align: center
+      color: rgba(0, 0, 0, 0.7)
+   &-articles
+      margin: 0
+      padding: 0
+      padding-top: 96px
+      padding-bottom: 96px
+      display: grid
+      grid-template-columns: repeat(4, 1fr)
+      grid-template-rows: repeat(2, 1fr)
+      grid-column-gap: 30px
+      grid-row-gap: 30px
+      &-item
+         background-color: #000000
+         border: 1px solid red
+         list-style: none
+         margin: 0
+         padding: 0
+         a
+            text-decoration: none
+         &-1
+            grid-area: 1 / 1 / 3 / 3
+            height: 510px
+         &-2
+            grid-area: 1 / 3 / 2 / 5
+            height: 240px
+         &-3
+            grid-area: 2 / 3 / 3 / 4
+            height: 240px
+         &-4
+            grid-area: 2 / 4 / 3 / 5
+            height: 240px
+      &-permalink
+      &-text
+         padding: 30px
+         z-index: 9
+      &-title
+         color: rgba(255, 255, 255, 0.9)
+         margin: 0
+      &-category
+         color: rgba(255, 255, 255, 0.5)
