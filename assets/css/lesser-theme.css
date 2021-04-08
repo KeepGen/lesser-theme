@@ -339,6 +339,8 @@ body {
 .blog-articles-item-image {
   height: 260px;
   width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 
 .blog-articles-item a {

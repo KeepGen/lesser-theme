@@ -128,7 +128,7 @@
                   <?php 
                }
             } else {
-               ?>Добавьте, пожалуйста, 4 поста в рубрики Веб Дизайн, Иллюстрация, Апликация, Фото<?php
+               ?>Добавьте, пожалуйста, 4 поста в рубрик Веб Дизайн, Иллюстрация, Апликация, Фото<?php
             }
 
             wp_reset_postdata(); // Сбрасываем $post
@@ -198,7 +198,12 @@
       <div class="blog-articles-wrapper">
          <div class="blog-articles-item">
             <a href="#" class="blog-articles-permalink">
-               <img src="#" alt="" class="blog-articles-item-image">
+               <img src="<?php if( has_post_thumbnail() ) {
+                  echo get_the_post_thumbnail_url();
+               }
+               else {
+                  echo get_template_directory_uri() .'/assets/images/img-default.png';
+               } ?>" alt="<?php get_the_title() ?>" class="blog-articles-item-image">
                <h3 class="blog-articles-item-title">New iPhone 6 Released</h3>
             </a>
             <!-- /.blog-articles-permalink -->
@@ -221,7 +226,12 @@
 
          <div class="blog-articles-item">
             <a href="#" class="blog-articles-permalink">
-               <img src="#" alt="" class="blog-articles-item-image">
+               <img src="<?php if( has_post_thumbnail() ) {
+                  echo get_the_post_thumbnail_url();
+               }
+               else {
+                  echo get_template_directory_uri() .'/assets/images/img-default.png';
+               } ?>" alt="<?php get_the_title() ?>" class="blog-articles-item-image">
                <h3 class="blog-articles-item-title">Start your day with a beautiful appearance</h3>
             </a>
             <!-- /.blog-articles-permalink -->
@@ -244,7 +254,12 @@
 
          <div class="blog-articles-item">
             <a href="#" class="blog-articles-permalink">
-               <img src="#" alt="" class="blog-articles-item-image">
+               <img src="<?php if( has_post_thumbnail() ) {
+                  echo get_the_post_thumbnail_url();
+               }
+               else {
+                  echo get_template_directory_uri() .'/assets/images/img-default.png';
+               } ?>" alt="<?php get_the_title() ?>" class="blog-articles-item-image">
                <h3 class="blog-articles-item-title">Bookmarksgrove right</h3>
             </a>
             <!-- /.blog-articles-permalink -->
