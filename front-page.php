@@ -2,41 +2,137 @@
 
 <div class="hero">
    <div class="container">
-      <h1 class="hero-title">Курс на социально-ориентированный национальный проект связывает нас с нашим прошлым</h1>
+      <?php global $post;
+
+         $query = new WP_Query( [
+            'posts_per_page' => 1,
+            'category_name' => 'front-page-title',
+         ] );
+
+         if ( $query->have_posts() ) {
+            while ( $query->have_posts() ) {
+               $query->the_post();
+               ?>
+                  <h1 class="hero-title"><?php the_title(); ?></h1>
+               <!-- Вывода постов, функции цикла: the_title() и т.д. -->
+               <?php 
+            }
+         } else { ?>
+            Добавьте, пожалуйста, заголовок!
+         <?php }
+
+         wp_reset_postdata(); // Сбрасываем $post
+      ?>
 
       <ul class="hero-articles">
-         <li class="hero-articles-item hero-articles-item-1">
-            <a href="#" class="hero-articles-permalink">
-               <div class="hero-articles-text">
-                  <h3 class="hero-articles-title">Работать с любовью</h3>
-                  <span class="hero-articles-category">Web Design</span>
-               </div>
-            </a>
-         </li>
-         <li class="hero-articles-item hero-articles-item-2">
-            <a href="#" class="hero-articles-permalink">
-               <div class="hero-articles-text">
-                  <h3 class="hero-articles-title">Любитель музыки</h3>
-                  <span class="hero-articles-category">Application</span>
-               </div>
-            </a>
-         </li>
-         <li class="hero-articles-item hero-articles-item-3">
-            <a href="#" class="hero-articles-permalink">
-               <div class="hero-articles-text">
-                  <h3 class="hero-articles-title">Путешествия</h3>
-                  <span class="hero-articles-category">Illustration</span>
-               </div>
-            </a>
-         </li>
-         <li class="hero-articles-item hero-articles-item-4">
-            <a href="#" class="hero-articles-permalink">
-               <div class="hero-articles-text">
-                  <h3 class="hero-articles-title">Стоп-кадр</h3>
-                  <span class="hero-articles-category">Photo</span>
-               </div>
-            </a>
-         </li>
+         <?php		
+            global $post;
+            // формируем запрос в базу данных
+            $query = new WP_Query( [
+               // получаем кол-во постов
+               'posts_per_page' => 4,
+               'category_name' => 'web-design, photo, illustration, application',
+            ] );
+               // проверяем, есть ли посты
+            if ( $query->have_posts() ) {
+               // создаем переменную-счетчик постов
+               $cnt = 0;
+               // пока посты есть, выводим их
+               while ( $query->have_posts() ) {
+                  $query->the_post();
+                  // увеличиваем счетчик постов
+                  $cnt++;
+                  switch ($cnt) {
+                     // выводим первый пост
+                     case '1':
+                        ?>
+                           <li class="hero-articles-item hero-articles-item-1">
+                              <img src="<?php if( has_post_thumbnail() ) {
+                                 echo get_the_post_thumbnail_url();
+                              }
+                              else {
+                                 echo get_template_directory_uri() .'/assets/images/img-default.png';
+                              } ?>" alt="<?php get_the_title() ?>" class="hero-articles-thumb">
+                              <a href="<?php the_permalink() ?>" class="hero-articles-permalink">
+                                 <div class="hero-articles-text">
+                                    <h3 class="hero-articles-title"><?php the_title(); ?></h3>
+                                    <span class="hero-articles-category"><?php $category = get_the_category(); echo $category [0]->name; ?></span>
+                                 </div>
+                              </a>
+                           </li>
+                        <?php 
+                        break;
+                     
+                     // выводим второй пост
+                     case '2':
+                        ?>
+                           <li class="hero-articles-item hero-articles-item-2">
+                              <img src="<?php if( has_post_thumbnail() ) {
+                                 echo get_the_post_thumbnail_url();
+                              }
+                              else {
+                                 echo get_template_directory_uri() .'/assets/images/img-default.png';
+                              } ?>" alt="<?php get_the_title() ?>" class="hero-articles-thumb">
+                              <a href="<?php the_permalink() ?>" class="hero-articles-permalink">
+                                 <div class="hero-articles-text">
+                                    <h3 class="hero-articles-title"><?php the_title(); ?></h3>
+                                    <span class="hero-articles-category"><?php $category = get_the_category(); echo $category [0]->name; ?></span>
+                                 </div>
+                              </a>
+                           </li>
+                        <?php
+                     break;
+                     
+                     // выводим третий пост
+                     case '3':
+                        ?>
+                        <li class="hero-articles-item hero-articles-item-3">
+                           <img src="<?php if( has_post_thumbnail() ) {
+                                 echo get_the_post_thumbnail_url();
+                              }
+                              else {
+                                 echo get_template_directory_uri() .'/assets/images/img-default.png';
+                              } ?>" alt="<?php get_the_title() ?>" class="hero-articles-thumb">
+                           <a href="<?php the_permalink() ?>" class="hero-articles-permalink">
+                              <div class="hero-articles-text">
+                                 <h3 class="hero-articles-title"><?php the_title(); ?></h3>
+                                 <span class="hero-articles-category"><?php $category = get_the_category(); echo $category [0]->name; ?></span>
+                              </div>
+                           </a>
+                        </li>
+                        <?php
+                     break;
+
+                     // выводим четвертый пост
+                     case '4':
+                        ?>
+                        <li class="hero-articles-item hero-articles-item-4">
+                           <img src="<?php if( has_post_thumbnail() ) {
+                                 echo get_the_post_thumbnail_url();
+                              }
+                              else {
+                                 echo get_template_directory_uri() .'/assets/images/img-default.png';
+                              } ?>" alt="<?php get_the_title() ?>" class="hero-articles-thumb">
+                           <a href="<?php the_permalink() ?>" class="hero-articles-permalink">
+                              <div class="hero-articles-text">
+                                 <h3 class="hero-articles-title"><?php the_title(); ?></h3>
+                                 <span class="hero-articles-category"><?php $category = get_the_category(); echo $category [0]->name; ?></span>
+                              </div>
+                           </a>
+                        </li>
+                        <?php
+                     break;
+                  }
+                  ?>
+                  <!-- Вывода постов, функции цикла: the_title() и т.д. -->
+                  <?php 
+               }
+            } else {
+               ?>Добавьте, пожалуйста, 4 поста в рубрики Веб Дизайн, Иллюстрация, Апликация, Фото<?php
+            }
+
+            wp_reset_postdata(); // Сбрасываем $post
+         ?>
       </ul>
       <!-- /.hero-articles -->
    </div>
@@ -54,7 +150,11 @@
 
       <div class="whywe-features">
          <div class="whywe-features-item">
-            <img src="" alt="" class="whywe-features-icon">
+            <div src="" alt="" class="whywe-features-icon">
+               <svg width="40" height="41" fill="#ffffff" class="icon comments-icon">
+                  <use xlink:href="<?php echo get_template_directory_uri() ?>/assets/images/sprite.svg#graph"></use>
+               </svg>
+            </div>
             <h3 class="whywe-features-title">Finance Dashboard</h3>
             <p class="whywe-features-text">
                Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.
@@ -62,7 +162,11 @@
          </div>
 
          <div class="whywe-features-item">
-            <img src="" alt="" class="whywe-features-icon">
+            <div src="" alt="" class="whywe-features-icon">
+               <svg width="40" height="41" fill="#ffffff" class="icon comments-icon">
+                  <use xlink:href="<?php echo get_template_directory_uri() ?>/assets/images/sprite.svg#heart"></use>
+               </svg>
+            </div>
             <h3 class="whywe-features-title">Finance Dashboard</h3>
             <p class="whywe-features-text">
                Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.
@@ -70,7 +174,11 @@
          </div>
          
          <div class="whywe-features-item">
-            <img src="" alt="" class="whywe-features-icon">
+            <div src="" alt="" class="whywe-features-icon">
+               <svg width="40" height="41" fill="#ffffff" class="icon comments-icon">
+                  <use xlink:href="<?php echo get_template_directory_uri() ?>/assets/images/sprite.svg#key"></use>
+               </svg>
+            </div>
             <h3 class="whywe-features-title">Finance Dashboard</h3>
             <p class="whywe-features-text">
                Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.
@@ -100,7 +208,14 @@
             </div>
             <!-- /.blog-articles-text -->
             
-            <a href="" class="blog-articles-button">Узнать больше</a>
+            <a href="#" class="blog-articles-button">
+               Узнать больше
+               <div class="blog-articles-button-arrow">
+                  <svg width="15" height="15" class="icon comments-icon">
+                     <use xlink:href="<?php echo get_template_directory_uri() ?>/assets/images/sprite.svg#right-arrow"></use>
+                  </svg>
+               </div>
+            </a>
          </div>
          <!-- /.blog-articles-item -->
 
@@ -116,7 +231,14 @@
             </div>
             <!-- /.blog-articles-text -->
             
-            <a href="" class="blog-articles-button">Узнать больше</a>
+            <a href="#" class="blog-articles-button">
+               Узнать больше
+               <div class="blog-articles-button-arrow">
+                  <svg width="15" height="15" class="icon comments-icon">
+                     <use xlink:href="<?php echo get_template_directory_uri() ?>/assets/images/sprite.svg#right-arrow"></use>
+                  </svg>
+               </div>
+            </a>
          </div>
          <!-- /.blog-articles-item -->
 
@@ -132,7 +254,14 @@
             </div>
             <!-- /.blog-articles-text -->
             
-            <a href="" class="blog-articles-button">Узнать больше</a>
+            <a href="#" class="blog-articles-button">
+               Узнать больше
+               <div class="blog-articles-button-arrow">
+                  <svg width="15" height="15" class="icon comments-icon">
+                     <use xlink:href="<?php echo get_template_directory_uri() ?>/assets/images/sprite.svg#right-arrow"></use>
+                  </svg>
+               </div>
+            </a>
          </div>
          <!-- /.blog-articles-item -->
 
@@ -152,7 +281,11 @@
 
       <div class="testimonials-wrapper">
          <div class="testimonials-item">
-            <div class="testimonials-item-quote">"</div>
+            <div class="testimonials-item-quote">
+               <svg width="28" height="30" fill="#bbc2ca" class="icon comments-icon">
+                  <use xlink:href="<?php echo get_template_directory_uri() ?>/assets/images/sprite.svg#quote"></use>
+               </svg>
+            </div>
             <p class="testimonials-item-text">
                Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.
             </p>
@@ -161,7 +294,11 @@
          <!-- /.testimonials-item -->
 
          <div class="testimonials-item">
-            <div class="testimonials-item-quote">"</div>
+            <div class="testimonials-item-quote">
+               <svg width="28" height="30" fill="#bbc2ca" class="icon comments-icon">
+                  <use xlink:href="<?php echo get_template_directory_uri() ?>/assets/images/sprite.svg#quote"></use>
+               </svg>
+            </div>
             <p class="testimonials-item-text">
                Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.
             </p>

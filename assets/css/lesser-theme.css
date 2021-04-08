@@ -1,3 +1,23 @@
+@font-face {
+  font-family: "Roboto";
+  src: local("Roboto"), local("Roboto"), url("../fonts/Roboto.woff") format("woff"), url("../fonts/Roboto.woff2") format("woff2");
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Playfair Display";
+  src: local("Playfair Display"), local("Playfair Display"), url("../fonts/Playfair-Display-Regular.woff") format("woff"), url("../fonts/Playfair-Display-Regular.woff2") format("woff2");
+  font-style: normal;
+  font-display: swap;
+}
+
+body {
+  font-family: 'Roboto', Arial, sans-serif;
+  font-size: 18px;
+  line-height: 1.5;
+}
+
 .header {
   background-color: #ffffff;
   padding: 40px 0;
@@ -50,11 +70,10 @@
 }
 
 .logo-name {
+  font-size: 28px;
+  font-weight: bold;
   color: #000000;
-  font-weight: 900;
-  font-size: 27px;
   text-transform: uppercase;
-  font-family: "Roboto", Arial, sans-serif;
 }
 
 .container {
@@ -64,13 +83,18 @@
 }
 
 .hero {
-  margin-top: 96px;
+  margin-top: 2px;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
 }
 
 .hero-title {
-  width: 750px;
+  font-family: "Playfair Display", Arial, serif;
+  font-size: 36px;
+  font-weight: normal;
+  width: 751px;
   margin: auto;
   text-align: center;
+  padding-top: 96px;
   color: rgba(0, 0, 0, 0.7);
 }
 
@@ -90,15 +114,25 @@
 }
 
 .hero-articles-item {
-  background-color: #000000;
-  border: 1px solid red;
   list-style: none;
   margin: 0;
   padding: 0;
+  position: relative;
+  border-radius: 4px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  overflow: hidden;
+}
+
+.hero-articles-item:hover, .hero-articles-item:focus {
+  background-color: rgba(0, 0, 0, 0.33);
+  -webkit-box-shadow: 0px 18px 43px -7px rgba(0, 0, 0, 0.33);
+          box-shadow: 0px 18px 43px -7px rgba(0, 0, 0, 0.33);
 }
 
 .hero-articles-item a {
   text-decoration: none;
+  display: inline-block;
 }
 
 .hero-articles-item-1 {
@@ -137,18 +171,49 @@
   height: 240px;
 }
 
+.hero-articles-thumb {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  overflow: hidden;
+  z-index: -1;
+}
+
+.hero-articles-permalink {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+.hero-articles-permalink:hover, .hero-articles-permalink:focus {
+  margin-bottom: 10px;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+
 .hero-articles-text {
+  position: absolute;
   padding: 30px;
-  z-index: 9;
+  bottom: 0;
+  left: 0;
+  right: 0;
 }
 
 .hero-articles-title {
+  font-family: "Playfair Display", Arial, serif;
+  font-size: 24px;
   color: rgba(255, 255, 255, 0.9);
   margin: 0;
 }
 
 .hero-articles-category {
   color: rgba(255, 255, 255, 0.5);
+  font-size: 16px;
 }
 
 .whywe {
@@ -160,6 +225,9 @@
   margin: 0;
   width: 550px;
   margin: auto;
+  font-family: "Playfair Display", Arial, serif;
+  font-size: 34px;
+  font-weight: normal;
   text-align: center;
   color: #ffffff;
   margin-bottom: 20px;
@@ -169,7 +237,7 @@
   width: 550px;
   margin: auto;
   text-align: center;
-  color: #ffffff;
+  color: rgba(255, 255, 255, 0.7);
   margin-bottom: 40px;
 }
 
@@ -204,16 +272,23 @@
 .whywe-features-icon {
   width: 90px;
   height: 90px;
+  color: white;
+  border: 2px solid rgba(255, 255, 255, 0.7);
+  padding: 23px;
+  border-radius: 50%;
 }
 
 .whywe-features-title {
+  font-family: "Playfair Display", Arial, serif;
+  font-size: 24px;
+  font-weight: normal;
   color: #ffffff;
   margin-top: 20px;
   margin-bottom: 15px;
 }
 
 .whywe-features-text {
-  color: #ffffff;
+  color: rgba(255, 255, 255, 0.7);
   text-align: center;
   margin: 0;
 }
@@ -236,6 +311,9 @@
 }
 
 .blog-articles-title {
+  font-family: "Playfair Display", Arial, serif;
+  font-size: 34px;
+  font-weight: normal;
   text-align: center;
   color: rgba(0, 0, 0, 0.8);
   margin: 0;
@@ -268,6 +346,9 @@
 }
 
 .blog-articles-item-title {
+  font-family: "Playfair Display", Arial, serif;
+  font-size: 24px;
+  font-weight: normal;
   padding: 0 20px;
   margin-bottom: 30px;
 }
@@ -290,26 +371,58 @@
 }
 
 .blog-articles-button {
-  margin-right: 4px;
-  margin-bottom: 4px;
+  position: relative;
   font-family: "Roboto", Arial, sans-serif;
   font-size: 16px;
   font-weight: 400;
   border-radius: 30px;
   white-space: nowrap;
   padding: 10px 20px;
-  display: inline-block;
+  margin-bottom: 30px;
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
   font-weight: normal;
   text-align: center;
   cursor: pointer;
   background: transparent;
   color: #1FB57B;
   border: 2px solid #1FB57B;
-  margin-bottom: 30px;
+  -webkit-transition: 0.35s;
+  transition: 0.35s;
 }
 
 .blog-articles-button:visited {
   color: #1FB57B;
+}
+
+.blog-articles-button:hover {
+  border: 2px solid #23cb8a;
+  background-color: #23cb8a;
+  color: #ffffff;
+  padding-right: 45px;
+  -webkit-transition: 0.35s;
+  transition: 0.35s;
+}
+
+.blog-articles-button:hover svg {
+  visibility: visible;
+  opacity: 1;
+  right: 0;
+  fill: #ffffff;
+}
+
+.blog-articles-button svg {
+  position: absolute;
+  visibility: hidden;
+  opacity: 0;
+  right: -8px;
+  top: 50%;
+  margin-top: -8px;
+  margin-right: 15px;
+  -webkit-transition: 0.2s;
+  transition: 0.2s;
+  fill: #ffffff;
 }
 
 .testimonials {
@@ -318,7 +431,11 @@
 
 .testimonials-title {
   width: 585px;
+  font-family: "Playfair Display", Arial, serif;
+  font-size: 34px;
+  font-weight: normal;
   text-align: center;
+  color: rgba(0, 0, 0, 0.7);
   padding: 0;
   margin: auto;
   margin-bottom: 20px;
@@ -326,6 +443,7 @@
 
 .testimonials-description {
   width: 585px;
+  color: #7F7F7F;
   text-align: center;
   padding: 0;
   margin: auto;
@@ -360,7 +478,6 @@
   background: rgba(45, 64, 89, 0.06);
   padding: 40px 30px;
   border-radius: 4px;
-  border: 1px solid red;
 }
 
 .testimonials-item-quote {
@@ -379,7 +496,11 @@
 .testimonials-item-text {
   font-size: 20px;
   line-height: 1.6em;
+  font-family: "Playfair Display", Arial, serif;
+  font-size: 20px;
+  font-weight: normal;
   color: #999999;
+  text-align: center;
   margin: 0;
   margin-top: 10px;
   margin-bottom: 30px;

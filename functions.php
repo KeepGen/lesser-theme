@@ -5,6 +5,9 @@ if ( ! function_exists('lesser_theme_setup')):
       // добавление тега title
       add_theme_support( 'title-tag' );
 
+      // Adding thumbnails
+      add_theme_support( 'post-thumbnails', array( 'post', 'lesson' ) );
+
       // добавление пользовательского логотипа
       add_theme_support( 'custom-logo', [
          'height'      => 30,
