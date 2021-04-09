@@ -2,27 +2,7 @@
 
 <div class="hero">
    <div class="container">
-      <?php global $post;
-
-         $query = new WP_Query( [
-            'posts_per_page' => 1,
-            'category_name' => 'front-page-title',
-         ] );
-
-         if ( $query->have_posts() ) {
-            while ( $query->have_posts() ) {
-               $query->the_post();
-               ?>
-                  <h1 class="hero-title"><?php the_title(); ?></h1>
-               <!-- Вывода постов, функции цикла: the_title() и т.д. -->
-               <?php 
-            }
-         } else { ?>
-            Добавьте, пожалуйста, заголовок!
-         <?php }
-
-         wp_reset_postdata(); // Сбрасываем $post
-      ?>
+      <h1 class="hero-title"><?php the_title(); ?></h1>
 
       <ul class="hero-articles">
          <?php		
@@ -193,7 +173,7 @@
 
 <div class="blog-articles">
    <div class="container">
-      <h2 class="blog-articles-title">Блог</h2>
+      <h2 class="blog-articles-title"><?php echo mb_strimwidth(get_the_title(), 0, 200, '...') ?></h2>
 
       <div class="blog-articles-wrapper">
          <?php
@@ -254,31 +234,39 @@
       </p>
 
       <div class="testimonials-wrapper">
-         <div class="testimonials-item">
-            <div class="testimonials-item-quote">
-               <svg width="28" height="30" fill="#bbc2ca" class="icon comments-icon">
-                  <use xlink:href="<?php echo get_template_directory_uri() ?>/assets/images/sprite.svg#quote"></use>
-               </svg>
+         <?php
+         $args = array(
+            'posts_per_page' => 2,
+            'orderby'   => 'rand',
+            'post_type' => 'otzyvy',
+         );
+         $products = new WP_Query( $args );
+         if( $products->have_posts() ) {
+            while( $products->have_posts() ) {
+            $products->the_post();
+         ?>
+            <div class="testimonials-item">
+               <div class="testimonials-item-quote">
+                  <svg width="28" height="30" fill="#bbc2ca" class="icon comments-icon">
+                     <use xlink:href="<?php echo get_template_directory_uri() ?>/assets/images/sprite.svg#quote"></use>
+                  </svg>
+               </div>
+               <p class="testimonials-item-text">
+                  <?php echo mb_strimwidth(get_the_excerpt(), 0, 300, '...') ?>
+               </p>
+               <span class="testimonials-item-author">
+                  <?php echo mb_strimwidth(get_the_title(), 0, 50, '...') ?>
+               </span>
             </div>
-            <p class="testimonials-item-text">
-               Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.
-            </p>
-            <span class="testimonials-item-author">Athan Smith</span>
-         </div>
-         <!-- /.testimonials-item -->
-
-         <div class="testimonials-item">
-            <div class="testimonials-item-quote">
-               <svg width="28" height="30" fill="#bbc2ca" class="icon comments-icon">
-                  <use xlink:href="<?php echo get_template_directory_uri() ?>/assets/images/sprite.svg#quote"></use>
-               </svg>
-            </div>
-            <p class="testimonials-item-text">
-               Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.
-            </p>
-            <span class="testimonials-item-author">Athan Smith</span>
-         </div>
-         <!-- /.testimonials-item -->
+            <!-- /.testimonials-item -->
+         
+         <?php
+               }
+            }
+            else {
+               echo 'О нет! К сожалению, нет ни одного отзыва. Добавьте пару штук чтобы они тут появились! :)';
+            }
+         ?>
 
       </div>
       <!-- /.testimonials-wrapper -->
