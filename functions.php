@@ -24,7 +24,7 @@ if ( ! function_exists('lesser_theme_setup')):
          'footer_menu' => 'Меню в подвале'
       ] );
 
-      
+
       // регистрирующая новые таксономии (create_blog_taxonomies)
       add_action( 'init', 'create_blog_taxonomies' );
 
@@ -133,6 +133,35 @@ if ( ! function_exists('lesser_theme_setup')):
             'query_var'           => true,
          ] );
       }
+
+      function revcon_change_post_label() {
+         global $menu;
+         global $submenu;
+         $menu[5][0] = 'Портфолио';
+         $submenu['edit.php'][5][0] = 'Портфолио';
+         $submenu['edit.php'][10][0] = 'Добавить новый проект';
+         $submenu['edit.php'][16][0] = 'Метки';
+      }
+      function revcon_change_post_object() {
+         global $wp_post_types;
+         $labels = &$wp_post_types['post']->labels;
+         $labels->name = 'Портфолио';
+         $labels->singular_name = 'Портфолио';
+         $labels->add_new = 'Добавить новый проект';
+         $labels->add_new_item = 'Add News';
+         $labels->edit_item = 'Изменить Портфолио';
+         $labels->new_item = 'Портфолио';
+         $labels->view_item = 'Посмотреть Портфолио';
+         $labels->search_items = 'Поиск Портфолио';
+         $labels->not_found = 'Портфолио не найдено';
+         $labels->not_found_in_trash = 'В корзине не найдено ничего из Портфолио';
+         $labels->all_items = 'Все работы в Портфолио';
+         $labels->menu_name = 'Портфолио';
+         $labels->name_admin_bar = 'Портфолио';
+      }
+      
+      add_action( 'admin_menu', 'revcon_change_post_label' );
+      add_action( 'init', 'revcon_change_post_object' );
       
 
    }
