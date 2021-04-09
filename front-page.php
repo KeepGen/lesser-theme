@@ -2,7 +2,7 @@
 
 <div class="hero">
    <div class="container">
-      <h1 class="hero-title"><?php the_title(); ?></h1>
+      <h1 class="hero-title"><?php echo get_post_meta(get_the_ID(), 'main-title', true) ?></h1>
 
       <ul class="hero-articles">
          <?php		
@@ -122,10 +122,8 @@
 
 <div class="whywe">
    <div class="container">
-      <h2 class="whywe-title">Почему мы?</h2>
-      <div class="whywe-description">
-         Хотите узнать наши основные преимуещства из-за которых нас выбирают наши клиенты и возвращаются вновь?
-      </div>
+      <h2 class="whywe-title"><?php echo get_post_meta(get_the_ID(), 'why-we-title', true) ?></h2>
+      <div class="whywe-description"><?php echo get_post_meta(get_the_ID(), 'why-we-opisanie', true) ?></div>
       <!-- /.whywe-description -->
 
       <div class="whywe-features">
@@ -135,10 +133,8 @@
                   <use xlink:href="<?php echo get_template_directory_uri() ?>/assets/images/sprite.svg#graph"></use>
                </svg>
             </div>
-            <h3 class="whywe-features-title">Finance Dashboard</h3>
-            <p class="whywe-features-text">
-               Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.
-            </p>   
+            <h3 class="whywe-features-title"><?php echo get_post_meta(90, 'feature-title-1', true) ?></h3>
+            <p class="whywe-features-text"><?php echo get_post_meta(90, 'feature-text-1', true) ?></p>
          </div>
 
          <div class="whywe-features-item">
@@ -147,10 +143,8 @@
                   <use xlink:href="<?php echo get_template_directory_uri() ?>/assets/images/sprite.svg#heart"></use>
                </svg>
             </div>
-            <h3 class="whywe-features-title">Finance Dashboard</h3>
-            <p class="whywe-features-text">
-               Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.
-            </p>   
+            <h3 class="whywe-features-title"><?php echo get_post_meta(90, 'feature-title-2', true) ?></h3>
+            <p class="whywe-features-text"><?php echo get_post_meta(90, 'feature-text-2', true) ?></p> 
          </div>
          
          <div class="whywe-features-item">
@@ -159,10 +153,8 @@
                   <use xlink:href="<?php echo get_template_directory_uri() ?>/assets/images/sprite.svg#key"></use>
                </svg>
             </div>
-            <h3 class="whywe-features-title">Finance Dashboard</h3>
-            <p class="whywe-features-text">
-               Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.
-            </p>   
+            <h3 class="whywe-features-title"><?php echo get_post_meta(90, 'feature-title-3', true) ?></h3>
+            <p class="whywe-features-text"><?php echo get_post_meta(90, 'feature-text-3', true) ?></p>  
          </div>
       </div>
       <!-- /.whywe-features -->
@@ -173,7 +165,7 @@
 
 <div class="blog-articles">
    <div class="container">
-      <h2 class="blog-articles-title"><?php echo mb_strimwidth(get_the_title(), 0, 200, '...') ?></h2>
+      <h2 class="blog-articles-title"><?php echo get_post_meta(get_the_ID(), 'blog-title', true) ?></h2>
 
       <div class="blog-articles-wrapper">
          <?php
@@ -228,10 +220,8 @@
 
 <div class="testimonials">
    <div class="container">
-      <h2 class="testimonials-title">Отзывы</h2>
-      <p class="testimonials-description">
-         Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.
-      </p>
+      <h2 class="testimonials-title"><?php echo get_post_meta(90, 'otzyvy-title', true) ?></h2>
+      <p class="testimonials-description"><?php echo get_post_meta(90, 'otzyvy-opisanie', true) ?></p>
 
       <div class="testimonials-wrapper">
          <?php

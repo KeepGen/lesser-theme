@@ -253,7 +253,7 @@ body {
 }
 
 .whywe-features-item {
-  width: 32%;
+  width: 31%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -286,7 +286,8 @@ body {
 
 .whywe-features-text {
   color: rgba(255, 255, 255, 0.7);
-  text-align: center;
+  text-align: justify;
+  text-align-last: start;
   margin: 0;
 }
 
