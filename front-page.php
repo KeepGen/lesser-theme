@@ -196,92 +196,51 @@
       <h2 class="blog-articles-title">Блог</h2>
 
       <div class="blog-articles-wrapper">
-         <div class="blog-articles-item">
-            <a href="<?php the_permalink() ?>" class="blog-articles-permalink">
-               <img src="<?php if( has_post_thumbnail() ) {
-                  echo get_the_post_thumbnail_url();
-               }
-               else {
-                  echo get_template_directory_uri() .'/assets/images/img-default.png';
-               } ?>" alt="<?php get_the_title() ?>" class="blog-articles-item-image">
-               <h3 class="blog-articles-item-title">New iPhone 6 Released</h3>
-            </a>
-            <!-- /.blog-articles-permalink -->
+         <?php
+         $args = array(
+            'posts_per_page' => 3,
+            'post_type' => 'blog',
+         );
+         $products = new WP_Query( $args );
+         if( $products->have_posts() ) {
+            while( $products->have_posts() ) {
+            $products->the_post();
+         ?>
+            <div class="blog-articles-item">
+               <a href="<?php the_permalink() ?>" class="blog-articles-permalink">
+                  <img src="<?php if( has_post_thumbnail() ) {
+                     echo get_the_post_thumbnail_url();
+                  }
+                  else {
+                     echo get_template_directory_uri() .'/assets/images/img-default.png';
+                  } ?>" alt="<?php get_the_title() ?>" class="blog-articles-item-image">
+                  <h3 class="blog-articles-item-title"><?php echo mb_strimwidth(get_the_title(), 0, 40, '...') ?></h3>
+               </a>
+               <!-- /.blog-articles-permalink -->
 
-            <div class="blog-articles-text">
-               Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.
+               <div class="blog-articles-text"><?php echo mb_strimwidth(get_the_excerpt(), 0, 225, '...') ?></div>
+               
+               <a href="<?php the_permalink() ?>" class="blog-articles-button">
+                  Узнать больше
+                  <div class="blog-articles-button-arrow">
+                     <svg width="15" height="15" class="icon comments-icon">
+                        <use xlink:href="<?php echo get_template_directory_uri() ?>/assets/images/sprite.svg#right-arrow"></use>
+                     </svg>
+                  </div>
+               </a>
             </div>
-            <!-- /.blog-articles-text -->
-            
-            <a href="<?php the_permalink() ?>" class="blog-articles-button">
-               Узнать больше
-               <div class="blog-articles-button-arrow">
-                  <svg width="15" height="15" class="icon comments-icon">
-                     <use xlink:href="<?php echo get_template_directory_uri() ?>/assets/images/sprite.svg#right-arrow"></use>
-                  </svg>
-               </div>
-            </a>
-         </div>
-         <!-- /.blog-articles-item -->
-
-         <div class="blog-articles-item">
-            <a href="<?php the_permalink() ?>" class="blog-articles-permalink">
-               <img src="<?php if( has_post_thumbnail() ) {
-                  echo get_the_post_thumbnail_url();
+            <!-- /.blog-articles-item -->
+         <?php
                }
-               else {
-                  echo get_template_directory_uri() .'/assets/images/img-default.png';
-               } ?>" alt="<?php get_the_title() ?>" class="blog-articles-item-image">
-               <h3 class="blog-articles-item-title">Start your day with a beautiful appearance</h3>
-            </a>
-            <!-- /.blog-articles-permalink -->
-
-            <div class="blog-articles-text">
-               Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.
-            </div>
-            <!-- /.blog-articles-text -->
-            
-            <a href="<?php the_permalink() ?>" class="blog-articles-button">
-               Узнать больше
-               <div class="blog-articles-button-arrow">
-                  <svg width="15" height="15" class="icon comments-icon">
-                     <use xlink:href="<?php echo get_template_directory_uri() ?>/assets/images/sprite.svg#right-arrow"></use>
-                  </svg>
-               </div>
-            </a>
-         </div>
-         <!-- /.blog-articles-item -->
-
-         <div class="blog-articles-item">
-            <a href="<?php the_permalink() ?>" class="blog-articles-permalink">
-               <img src="<?php if( has_post_thumbnail() ) {
-                  echo get_the_post_thumbnail_url();
-               }
-               else {
-                  echo get_template_directory_uri() .'/assets/images/img-default.png';
-               } ?>" alt="<?php get_the_title() ?>" class="blog-articles-item-image">
-               <h3 class="blog-articles-item-title">Bookmarksgrove right</h3>
-            </a>
-            <!-- /.blog-articles-permalink -->
-
-            <div class="blog-articles-text">
-               Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.
-            </div>
-            <!-- /.blog-articles-text -->
-            
-            <a href="<?php the_permalink() ?>" class="blog-articles-button">
-               Узнать больше
-               <div class="blog-articles-button-arrow">
-                  <svg width="15" height="15" class="icon comments-icon">
-                     <use xlink:href="<?php echo get_template_directory_uri() ?>/assets/images/sprite.svg#right-arrow"></use>
-                  </svg>
-               </div>
-            </a>
-         </div>
-         <!-- /.blog-articles-item -->
+            }
+            else {
+               echo 'О нет! К сожалению, нет ни одной записи в блоге. Добавьте пару штук чтобы они тут появились! :)';
+            }
+         ?>
 
       </div>
       <!-- /.blog-articles-wrapper -->
+
    </div>
    <!-- /.container -->
 </div>
