@@ -197,7 +197,7 @@
 
       <div class="blog-articles-wrapper">
          <div class="blog-articles-item">
-            <a href="#" class="blog-articles-permalink">
+            <a href="<?php the_permalink() ?>" class="blog-articles-permalink">
                <img src="<?php if( has_post_thumbnail() ) {
                   echo get_the_post_thumbnail_url();
                }
@@ -213,7 +213,7 @@
             </div>
             <!-- /.blog-articles-text -->
             
-            <a href="#" class="blog-articles-button">
+            <a href="<?php the_permalink() ?>" class="blog-articles-button">
                Узнать больше
                <div class="blog-articles-button-arrow">
                   <svg width="15" height="15" class="icon comments-icon">
@@ -225,7 +225,7 @@
          <!-- /.blog-articles-item -->
 
          <div class="blog-articles-item">
-            <a href="#" class="blog-articles-permalink">
+            <a href="<?php the_permalink() ?>" class="blog-articles-permalink">
                <img src="<?php if( has_post_thumbnail() ) {
                   echo get_the_post_thumbnail_url();
                }
@@ -241,7 +241,7 @@
             </div>
             <!-- /.blog-articles-text -->
             
-            <a href="#" class="blog-articles-button">
+            <a href="<?php the_permalink() ?>" class="blog-articles-button">
                Узнать больше
                <div class="blog-articles-button-arrow">
                   <svg width="15" height="15" class="icon comments-icon">
@@ -253,7 +253,7 @@
          <!-- /.blog-articles-item -->
 
          <div class="blog-articles-item">
-            <a href="#" class="blog-articles-permalink">
+            <a href="<?php the_permalink() ?>" class="blog-articles-permalink">
                <img src="<?php if( has_post_thumbnail() ) {
                   echo get_the_post_thumbnail_url();
                }
@@ -269,7 +269,7 @@
             </div>
             <!-- /.blog-articles-text -->
             
-            <a href="#" class="blog-articles-button">
+            <a href="<?php the_permalink() ?>" class="blog-articles-button">
                Узнать больше
                <div class="blog-articles-button-arrow">
                   <svg width="15" height="15" class="icon comments-icon">
