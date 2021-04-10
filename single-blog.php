@@ -1,1 +1,0 @@
-<h1>single-blog.php</h1>
