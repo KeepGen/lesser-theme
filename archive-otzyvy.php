@@ -7,10 +7,10 @@
          <?php
             $queried_object = get_queried_object()->label;
             print_r( $queried_object );
-         ?>  - !!! ARCHIVE-BLOG.PHP !!!
+         ?>  - !!! ARCHIVE-OTZYVY.PHP !!!
       </h1>
 
-         <div class="blog-articles-wrapper archive-articles-wrapper">
+         <div class="blog-articles-wrapper">
             <?php while ( have_posts() ){ the_post(); ?>
                <div class="blog-articles-item archive-item">
                   <a href="<?php the_permalink() ?>" class="blog-articles-permalink">
@@ -36,7 +36,7 @@
                   </a>
                </div>
                <!-- /.blog-articles-item -->
-            <?php } ?>
+                        <?php } ?>
             <?php if ( ! have_posts() ){ ?>
                Записей еще пока нет, но они скоро появятся.
             <?php } ?>
@@ -45,13 +45,11 @@
                $args = array (
                   'prev_text' => '<div class="grey-icons">&larr;</div> Назад',
                   'next_text' => 'Вперед <div class="grey-icons">&rarr;</div>',
-                  'end_size'     => 1,     // количество страниц на концах
-	               'mid_size'     => 1,     // количество страниц вокруг текущей
                );
             the_posts_pagination( $args ) ?>
             
          </div>
-         <!-- /.blog-articles-wrapper -->
+         <!-- /.posts-list -->
       
    </div>
    <!-- /.container -->
