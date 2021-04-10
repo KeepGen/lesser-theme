@@ -12,7 +12,7 @@
                <!-- /.footer-aboutus -->
 
                <div class="footer-portfolio">
-                  <div class="footer-portfolio-title">Портфолио</div>
+                  <div class="footer-portfolio-title"><?php echo get_post_meta(101, 'portfolio-footer-title', true) ?></div>
                   <div class="footer-portfolio-text">
                      <?php
                         wp_nav_menu( [
