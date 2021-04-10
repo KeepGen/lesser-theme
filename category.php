@@ -1,6 +1,3 @@
-<h1>category.php</h1>
-(Portfolio, Application, Illustration, Web-Design, Photo)
-
 <?php get_header() ?>
 
 <div class="archive-page">
