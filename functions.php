@@ -21,7 +21,8 @@ if ( ! function_exists('lesser_theme_setup')):
       // регистрация меню
       register_nav_menus( [
          'header_menu' => 'Меню в шапке',
-         'footer_menu' => 'Меню в подвале'
+         'footer_menu' => 'Меню в подвале',
+         'sidebar_blog' => 'Сайдбар с категориями в разделе Блог',
       ] );
 
 
@@ -31,8 +32,8 @@ if ( ! function_exists('lesser_theme_setup')):
       // функция, создающая новую таксономию "category" для постов типа "blog"
       function create_blog_taxonomies(){
 
-         // Добавляем древовидную таксономию 'blog_cat' (как категории)
-         register_taxonomy('blog_cat', array('blog'), array(
+         // Добавляем древовидную таксономию 'blog' (как категории)
+         register_taxonomy('blogs', array('blog'), array(
             'hierarchical'  => true,
             'labels'        => array(
                'name'              => _x( 'Категории', 'taxonomy general name' ),
@@ -49,7 +50,7 @@ if ( ! function_exists('lesser_theme_setup')):
             ),
             'show_ui'       => true,
             'query_var'     => true,
-            'rewrite'       => array( 'slug' => 'blog_cat' ), // свой слаг в URL
+            'rewrite'       => array( 'slug' => 'blogs' ), // свой слаг в URL
          ));
       }
 
@@ -58,7 +59,7 @@ if ( ! function_exists('lesser_theme_setup')):
          register_post_type( 'blog', [
             'label'  => null,
             'labels' => [
-               'name'               => 'Записи в Блоге', // основное название для типа записи
+               'name'               => 'Блог', // основное название для типа записи
                'singular_name'      => 'Запись в Блоге', // название для одной записи этого типа
                'add_new'            => 'Добавить новую запись в блог', // для добавления новой записи
                'add_new_item'       => 'Добавление записи в блог', // заголовка у вновь создаваемой записи в админ-панели.
