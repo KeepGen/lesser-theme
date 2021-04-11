@@ -7,7 +7,7 @@
  * @package universal-theme
  */
 
-get_header();
+get_header('post');
 ?>
 
 	<div class="container">

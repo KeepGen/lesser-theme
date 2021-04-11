@@ -1,6 +1,4 @@
 <?php
-
-
    get_header('post'); ?>
    <main class="site-main">
       
