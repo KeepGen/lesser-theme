@@ -4,7 +4,7 @@
    <div class="container">
 
       <h1 class="archive-title">
-         <?php single_cat_title() ?> - !!! TAXONOMY.PHP !!!
+         <?php single_cat_title() ?>
       </h1>
 
       <div class="blog-articles-wrapper archive-articles-wrapper">

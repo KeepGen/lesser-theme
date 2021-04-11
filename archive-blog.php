@@ -7,7 +7,7 @@
          <?php
             $queried_object = get_queried_object()->label;
             print_r( $queried_object );
-         ?>  - !!! ARCHIVE-BLOG.PHP !!!
+         ?>
       </h1>
 
          <div class="blog-articles-wrapper archive-articles-wrapper">

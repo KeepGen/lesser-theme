@@ -7,7 +7,7 @@
          <?php
             $queried_object = get_queried_object()->label;
             print_r( $queried_object );
-         ?>  - !!! ARCHIVE-OTZYVY.PHP !!!
+         ?>
       </h1>
 
          <div class="blog-articles-wrapper">

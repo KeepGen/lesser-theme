@@ -1,5 +1,3 @@
-<h1>single.php</h1>
-
 <?php get_header('post'); ?>
    <main class="site-main">
       
