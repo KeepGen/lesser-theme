@@ -175,3 +175,14 @@ function enqueue_lesser_style() {
    wp_enqueue_style( 'lesser-theme', get_template_directory_uri() . '/assets/css/lesser-theme.css', 'style');
 }
 add_action( 'wp_enqueue_scripts', 'enqueue_lesser_style' );
+
+## Изменяем настройки облака тегов
+add_action( 'widget_tag_cloud_args' , 'edit_widget_tag_cloud_args');
+function edit_widget_tag_cloud_args($args) {
+	$args	['unit'] = 'px';
+	$args	['smallest'] = '16';
+	$args	['largest'] = '16';
+	$args	['number'] = '20';
+	$args	['orderby'] = 'count';
+	return $args;
+}
