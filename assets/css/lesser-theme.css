@@ -37,6 +37,10 @@ body {
           justify-content: space-between;
 }
 
+.header-wrapper a {
+  text-decoration: none;
+}
+
 .header-menu {
   margin: 0;
   padding: 0;
