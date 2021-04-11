@@ -28,6 +28,13 @@
                'echo'            => true,
             ] );
          ?>
+
+         <a href="#" class="header-menu-toggle header-menu-toggle-active">
+            <span></span>
+            <span></span>
+            <span></span>
+         </a>
+
       </div>
    </div>
 </header>
