@@ -98,7 +98,7 @@ body {
     width: 250px;
     z-index: 99;
     padding: 25px;
-    padding-top: 70px;
+    padding-top: 20px;
   }
   .header-menu {
     -webkit-box-orient: vertical;
@@ -139,7 +139,7 @@ body {
             flex-direction: column;
     z-index: 100;
     position: fixed;
-    top: 97px;
+    top: 50px;
     right: 50px;
   }
   .header-menu-toggle span {
@@ -147,6 +147,9 @@ body {
     height: 2px;
     background-color: #828282;
     color: #ffffff;
+  }
+  .header-menu-wrapper-toggle {
+    position: absolute;
   }
 }
 
@@ -680,6 +683,12 @@ body {
 }
 
 @media screen and (max-width: 1024px) {
+  .testimonials-title {
+    width: 100%;
+  }
+  .testimonials-description {
+    width: 100%;
+  }
   .testimonials-wrapper {
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
@@ -1055,7 +1064,7 @@ article {
 }
 
 .post-content-text {
-  width: 780px;
+  width: 68%;
 }
 
 .post-content-text p:first-child {
@@ -1063,7 +1072,7 @@ article {
 }
 
 .post-content-sidebar {
-  width: 340px;
+  width: 30%;
   border-left: 1px solid rgba(0, 0, 0, 0.1);
   padding: 0 15px 30px 20px;
 }
@@ -1103,6 +1112,31 @@ article {
 
 .post-content-sidebar a:hover {
   color: #1FB57B;
+}
+
+@media screen and (max-width: 1024px) {
+  .post-header-title {
+    width: 90%;
+    margin: auto;
+    margin-bottom: 30px;
+  }
+  .post-content-wrapper {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  .post-content-text {
+    width: 100%;
+  }
+  .post-content-sidebar {
+    width: 100%;
+    padding-left: 0;
+    border-left: none;
+  }
+  article {
+    padding: 56px 0;
+  }
 }
 
 .post-contactus-title {
@@ -1230,6 +1264,7 @@ article {
   background: transparent;
   border: 2px solid rgba(0, 0, 0, 0.1);
   height: 54px;
+  width: 95%;
   font-size: 18px;
   font-weight: 300;
   margin: 0 15px;
@@ -1243,6 +1278,7 @@ article {
   font-weight: 300;
   margin: 0 15px;
   resize: none;
+  width: 97%;
 }
 
 .wpcf7-form .button-send {
@@ -1269,6 +1305,52 @@ article {
 
 .wpcf7-not-valid-tip {
   margin-left: 15px;
+}
+
+@media screen and (max-width: 992px) {
+  .post-contactus-wrapper {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  .post-contactus-info {
+    width: 90%;
+    margin: auto;
+  }
+  .post-contactus-form {
+    width: 100%;
+  }
+  .wpcf7-form {
+    width: 100%;
+    margin: auto;
+    margin-top: 30px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .contacts-wrapper-form {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    width: 100%;
+  }
+  .contacts-wrapper-form .wpcf7-form-control-wrap {
+    width: 100%;
+  }
+  .contacts-wrapper-form .wpcf7-form-control-wrap input {
+    width: 97%;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .contacts-wrapper-form .wpcf7-form-control-wrap input {
+    width: 90%;
+  }
+  .wpcf7-form .contacts-textarea {
+    width: 90%;
+  }
 }
 
 .page404 {
