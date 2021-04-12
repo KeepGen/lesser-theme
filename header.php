@@ -29,13 +29,11 @@
             ] );
          ?>
 
-         <div class="header-menu-wrapper-toggle">
-            <a href="#" class="header-menu-toggle">
-               <span></span>
-               <span></span>
-               <span></span>
-            </a>
-         </div>        
+         <a href="#" class="header-menu-toggle">
+            <span></span>
+            <span></span>
+            <span></span>
+         </a>
 
       </div>
    </div>

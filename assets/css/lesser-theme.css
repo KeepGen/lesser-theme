@@ -57,6 +57,10 @@ body {
   display: none;
 }
 
+.header-nav {
+  display: block;
+}
+
 .menu-item a {
   text-decoration: none;
   font-size: 16px;
@@ -85,15 +89,14 @@ body {
 }
 
 @media screen and (max-width: 768px) {
-  .header {
+  .header-wrapper {
     position: relative;
   }
   .header-nav {
     display: none;
-    position: fixed;
-    top: 0;
-    right: 0;
-    bottom: 0;
+    position: absolute;
+    top: -40px;
+    right: -33px;
     background-color: #3c3c3c;
     width: 250px;
     z-index: 99;
@@ -138,18 +141,15 @@ body {
         -ms-flex-direction: column;
             flex-direction: column;
     z-index: 100;
-    position: fixed;
-    top: 50px;
-    right: 50px;
+    position: absolute;
+    top: 10px;
+    right: 0;
   }
   .header-menu-toggle span {
     width: 100%;
     height: 2px;
     background-color: #828282;
     color: #ffffff;
-  }
-  .header-menu-wrapper-toggle {
-    position: absolute;
   }
 }
 
@@ -839,6 +839,7 @@ body {
   .footer-aboutus, .footer-portfolio, .footer-social {
     width: 100%;
     margin-bottom: 50px;
+    margin-right: 0;
   }
   .footer-copyright {
     margin-top: 20px;
@@ -880,6 +881,12 @@ body {
   margin-bottom: 50px;
 }
 
+@media screen and (max-width: 576px) {
+  .archive-item {
+    margin-right: 0;
+  }
+}
+
 .pagination {
   width: 50%;
   margin-bottom: 75px;
@@ -900,6 +907,7 @@ body {
       -ms-flex-align: center;
           align-items: center;
   border: 1px solid #1FB57B;
+  overflow: hidden;
 }
 
 .pagination .nav-links * {
@@ -971,11 +979,21 @@ body {
 
 .pagination .nav-links .page-numbers {
   padding: 17px 25px;
+  color: #1FB57B;
+  font-weight: 900;
+}
+
+.pagination .nav-links .page-numbers:hover {
+  background-color: #e6ece4;
 }
 
 .pagination .nav-links .current {
-  color: #1FB57B;
   font-weight: 900;
+  color: #939699;
+}
+
+.pagination .nav-links .current:hover {
+  background-color: #f1f1f1;
 }
 
 .pagination .nav-links .dots {
@@ -989,11 +1007,14 @@ body {
 }
 
 @media screen and (max-width: 576px) {
+  .pagination {
+    width: 100%;
+  }
   .pagination .nav-links .page-numbers {
     padding: 17px 20px;
   }
-  .pagination .nav-links .current {
-    color: #1FB57B;
+  .pagination .nav-links .page-numbers .grey-icons {
+    display: none;
   }
   .pagination .nav-links .dots {
     display: none;
