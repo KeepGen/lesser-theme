@@ -59,6 +59,10 @@ body {
   border-radius: 40px;
 }
 
+.header-menu .active:hover {
+  color: #ffffff;
+}
+
 .header-menu-toggle {
   display: none;
 }
