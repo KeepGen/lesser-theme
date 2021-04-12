@@ -53,6 +53,12 @@ body {
           align-items: center;
 }
 
+.header-menu .active {
+  color: #ffffff;
+  background: #1FB57B;
+  border-radius: 40px;
+}
+
 .header-menu-toggle {
   display: none;
 }
