@@ -153,6 +153,16 @@ body {
   }
 }
 
+::-moz-selection {
+  color: #fff;
+  background: #1FB57B;
+}
+
+::selection {
+  color: #fff;
+  background: #1FB57B;
+}
+
 .container {
   max-width: 1140px;
   width: 90%;
