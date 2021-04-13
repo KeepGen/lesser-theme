@@ -190,3 +190,19 @@ function edit_widget_tag_cloud_args($args) {
 	$args	['orderby'] = 'count';
 	return $args;
 }
+
+## отключение доп отступа при включённой админке #wpAdminBar
+function custom_theme_setup() {
+  add_theme_support( 'admin-bar', array( 'callback' => 'my_admin_bar_css') );
+}
+add_action( 'after_setup_theme', 'custom_theme_setup' );
+ 
+function my_admin_bar_css() { ?>
+<style>
+	/*
+	 * put here your custom css rules to be added to the header 
+	 * when the admin bar is visible 
+	 */
+</style>
+<?php
+}
