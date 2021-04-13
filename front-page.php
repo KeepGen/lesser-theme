@@ -36,7 +36,17 @@
                               <a href="<?php the_permalink() ?>" class="hero-articles-permalink">
                                  <div class="hero-articles-text">
                                     <h3 class="hero-articles-title"><?php the_title(); ?></h3>
-                                    <span class="hero-articles-category"><?php $category = get_the_category(); echo $category [0]->name; ?></span>
+                                    <span class="hero-articles-category">
+                                       <?php
+                                          foreach (get_the_category() as $category ) {
+                                             printf(
+                                                '<a href="%s" class="hero-articles-category">%s</a>',
+                                                esc_url ( get_category_link($category) ),
+                                                esc_html ( $category -> name ),
+                                             );
+                                          }
+                                       ?>
+                                    </span>
                                  </div>
                               </a>
                            </li>
@@ -56,7 +66,17 @@
                               <a href="<?php the_permalink() ?>" class="hero-articles-permalink">
                                  <div class="hero-articles-text">
                                     <h3 class="hero-articles-title"><?php the_title(); ?></h3>
-                                    <span class="hero-articles-category"><?php $category = get_the_category(); echo $category [0]->name; ?></span>
+                                    <span class="hero-articles-category">
+                                       <?php
+                                          foreach (get_the_category() as $category ) {
+                                             printf(
+                                                '<a href="%s" class="hero-articles-category">%s</a>',
+                                                esc_url ( get_category_link($category) ),
+                                                esc_html ( $category -> name ),
+                                             );
+                                          }
+                                       ?>
+                                    </span>
                                  </div>
                               </a>
                            </li>
@@ -76,7 +96,17 @@
                            <a href="<?php the_permalink() ?>" class="hero-articles-permalink">
                               <div class="hero-articles-text">
                                  <h3 class="hero-articles-title"><?php the_title(); ?></h3>
-                                 <span class="hero-articles-category"><?php $category = get_the_category(); echo $category [0]->name; ?></span>
+                                 <span class="hero-articles-category">
+                                    <?php
+                                       foreach (get_the_category() as $category ) {
+                                          printf(
+                                             '<a href="%s" class="hero-articles-category">%s</a>',
+                                             esc_url ( get_category_link($category) ),
+                                             esc_html ( $category -> name ),
+                                          );
+                                       }
+                                    ?>
+                                 </span>
                               </div>
                            </a>
                         </li>
@@ -96,7 +126,17 @@
                            <a href="<?php the_permalink() ?>" class="hero-articles-permalink">
                               <div class="hero-articles-text">
                                  <h3 class="hero-articles-title"><?php the_title(); ?></h3>
-                                 <span class="hero-articles-category"><?php $category = get_the_category(); echo $category [0]->name; ?></span>
+                                 <span class="hero-articles-category">
+                                    <?php
+                                       foreach (get_the_category() as $category ) {
+                                          printf(
+                                             '<a href="%s" class="hero-articles-category">%s</a>',
+                                             esc_url ( get_category_link($category) ),
+                                             esc_html ( $category -> name ),
+                                          );
+                                       }
+                                    ?>
+                                 </span>
                               </div>
                            </a>
                         </li>
