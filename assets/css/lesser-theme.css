@@ -301,6 +301,12 @@ body {
   right: 0;
 }
 
+.hero-articles-text:hover, .hero-articles-text:focus {
+  margin-bottom: 10px;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+
 .hero-articles-title {
   position: relative;
   font-family: "Playfair Display", Arial, serif;
