@@ -85,5 +85,7 @@
          <!-- /.container -->
       </footer>
       <?php wp_footer(); ?>
+   </div>
+   <!-- /.grand-wrapper -->
    </body>
 </html>
