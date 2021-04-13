@@ -15,12 +15,6 @@
       list-style: none
       display: flex
       align-items: center
-      li
-         a
-            &:focus, &:active
-               //color: #ffffff
-               //background: #1FB57B
-               //border-radius: 40px
       .active
          color: #ffffff
          background: #1FB57B
@@ -74,6 +68,11 @@
                color: #1FB57B
          li
             margin-bottom: 15px
+         .active
+            color: rgba(255, 255, 255, 0.7)
+            background: transparent
+            &:hover
+               color: #1FB57B
          &-toggle
             display: flex
             width: 30px

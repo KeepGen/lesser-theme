@@ -134,6 +134,13 @@ body {
   .header-menu li {
     margin-bottom: 15px;
   }
+  .header-menu .active {
+    color: rgba(255, 255, 255, 0.7);
+    background: transparent;
+  }
+  .header-menu .active:hover {
+    color: #1FB57B;
+  }
   .header-menu-toggle {
     display: -webkit-box;
     display: -ms-flexbox;
